@@ -41,13 +41,13 @@
       <ng-container matColumnDef="makeTime">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Create Time</th>
         <td mat-cell *matCellDef="let row">
-          {{ row && row.makeTime ? (row.makeTime | date : "dd/MM/yyyy") : "—" }}
+          {{ row.makeTime | date : "dd/MM/yyyy hh:mm a" }}
         </td>
       </ng-container>
 
       <!-- Modifier Column -->
       <ng-container matColumnDef="modifier">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Modifier</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Update By</th>
         <td mat-cell *matCellDef="let row">
           {{ row && row.modifier ? row.modifier : "—" }}
         </td>
@@ -55,7 +55,7 @@
 
       <!-- modifyTime Column -->
       <ng-container matColumnDef="modifiedTime">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Modified Time</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Update Time</th>
         <td mat-cell *matCellDef="let row">
           {{
             row && row.modifiedTime

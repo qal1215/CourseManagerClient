@@ -27,14 +27,9 @@ export class AppComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(
-    private _dialog: MatDialog,
-    private _studentService: StudentService
-  ) {}
+  constructor(private _dialog: MatDialog) {}
 
-  ngOnInit(): void {
-    this.getStudents();
-  }
+  ngOnInit(): void {}
 
   openAddStudentForm() {
     const dialogRef = this._dialog.open(AddStudentComponent);
@@ -42,7 +37,6 @@ export class AppComponent implements OnInit {
       next: (data: any) => {
         if (data) {
           alert('Student updated successfully');
-          this.getStudents();
         }
       };
     });
@@ -50,37 +44,5 @@ export class AppComponent implements OnInit {
 
   openAddCourseForm() {
     this._dialog.open(AddCourseComponent);
-  }
-
-  getStudents() {
-    this._studentService.getStudents().subscribe({
-      next: (data: any) => {
-        this.dataSource = new MatTableDataSource(data);
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
-      },
-      error: console.log,
-    });
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-  deleteStudent(id: number) {
-    this._studentService.deleteStudent(id).subscribe({
-      next: (data: any) => {
-        alert('Student deleted successfully');
-        this.getStudents();
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
   }
 }

@@ -64,14 +64,9 @@
             },
             "development": {
               "browserTarget": "CourseManagerWebApp:build:development"
-              //Config port
-              // "port": 5000
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "proxyConfig": "src/proxy.conf.js"
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

@@ -5,6 +5,32 @@
   <form [formGroup]="studentForm" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">
       <div class="row">
+        <div *ngIf="!data">
+          <mat-form-field appearance="outline">
+            <mat-label>Create by</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="Ex. Nguyen Van A"
+              formControlName="maker"
+            />
+          </mat-form-field>
+        </div>
+
+        <div *ngIf="data">
+          <mat-form-field appearance="outline">
+            <mat-label>Update by</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="Ex. Nguyen Van A"
+              formControlName="modifier"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
         <mat-form-field appearance="outline">
           <mat-label>Full Name</mat-label>
           <input

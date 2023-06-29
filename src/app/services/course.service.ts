@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class CourseService {
   proxy = 'http://localhost:8080/api/course';
-
   constructor(private _http: HttpClient) {}
 
   addCourse(data: any): Observable<any> {

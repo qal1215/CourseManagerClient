@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { StudentService } from '../services/student.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { DIALOG_DATA } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-add-student',
@@ -14,12 +15,16 @@ export class AddStudentComponent {
   constructor(
     private _fb: FormBuilder,
     private _studentService: StudentService,
-    private _dialogRef: MatDialogRef<AddStudentComponent>
+    private _dialogRef: MatDialogRef<AddStudentComponent>,
+    @Inject(DIALOG_DATA) public data: any
   ) {
     this.studentForm = this._fb.group({
+      id: '',
       fullName: '',
       birthday: '',
       gender: '',
+      maker: '',
+      modifier: '',
     });
   }
 

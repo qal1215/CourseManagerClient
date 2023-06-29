@@ -19,7 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { MatTabsModule } from '@angular/material/tabs';
 // Child component
 import { AddStudentComponent } from './add-student/add-student.component';
 import { ShowCourseComponent } from './show-course/show-course.component';
@@ -53,6 +53,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
