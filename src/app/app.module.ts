@@ -22,11 +22,19 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 // Child component
 import { AddStudentComponent } from './add-student/add-student.component';
+import { ShowCourseComponent } from './show-course/show-course.component';
+import { ShowStudentsComponent } from './show-students/show-students.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, AddStudentComponent, AddCourseComponent],
+  declarations: [
+    AppComponent,
+    AddStudentComponent,
+    AddCourseComponent,
+    ShowStudentsComponent,
+    ShowCourseComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

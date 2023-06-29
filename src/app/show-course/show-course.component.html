@@ -1,0 +1,108 @@
+<div class="main-body">
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. Mia"
+      #input
+    />
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+        <td mat-cell *matCellDef="let row">{{ row.title }}</td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let row">{{ row.description }}</td>
+      </ng-container>
+
+      <!-- Capacity Column -->
+      <ng-container matColumnDef="capacity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Capacity</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.capacity }}
+        </td>
+      </ng-container>
+
+      <!-- Start Date Column -->
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.startDate | date : "dd/MM/yyyy" }}
+        </td>
+      </ng-container>
+
+      <!-- Maker Column -->
+      <ng-container matColumnDef="maker">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Create By</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.maker }}
+        </td>
+      </ng-container>
+
+      <!-- Maker Time Column -->
+      <ng-container matColumnDef="makeTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Create Time</th>
+        <td mat-cell *matCellDef="let row">{{ row.makeTime }}</td>
+      </ng-container>
+
+      <!-- Modifier Column -->
+      <ng-container matColumnDef="modifier">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Modifier</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.modifier }}
+        </td>
+      </ng-container>
+
+      <!-- Modifier Time Column -->
+      <ng-container matColumnDef="modifiedTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Modified Time</th>
+        <td mat-cell *matCellDef="let row">{{ row.modifiedTime }}</td>
+      </ng-container>
+
+      <!-- Edit Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+        <td mat-cell *matCellDef="let row">
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="openEditCourseForm(row)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteStudent(row.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No data matching the filter "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of students"
+    ></mat-paginator>
+  </div>
+</div>
