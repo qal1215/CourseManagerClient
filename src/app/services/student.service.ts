@@ -18,10 +18,10 @@ export class StudentService {
   }
 
   deleteStudent(id: number): Observable<any> {
-    return this._http.delete(this.proxy + `${id}`);
+    return this._http.delete(this.proxy + `/${id}`);
   }
 
   updateStudent(id: number, data: any): Observable<any> {
-    return this._http.put(this.proxy + `${id}`, data);
+    return this._http.put(this.proxy + `/${id}`, data);
   }
 }
