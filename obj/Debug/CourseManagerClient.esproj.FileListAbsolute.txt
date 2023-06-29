@@ -1,0 +1,2 @@
+F:\ASPdotNetCore\CourseManagemer\CourseManagerClient\obj\Debug\CourseManagerClient.esproj.SuggestedBindingRedirects.cache
+F:\ASPdotNetCore\CourseManagemer\CourseManagerClient\obj\Debug\CourseManagerClient.esproj.CoreCompileInputs.cache
